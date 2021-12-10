@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>leftover 贪吃蛇</title>
+		<link rel="icon" href="./favicon.ico" />
+		<link
+			rel="stylesheet"
+			href="./layui-v2.6.8/layui-v2.6.8/layui/css/layui.css"
+		/>
+		<style>
+			a {
+				text-decoration: none;
+			}
+			#bottom {
+				position: absolute;
+				left: 2%;
+				bottom: 8px;
+				font-size: 12px;
+			}
+			#bottom a {
+				color: #b0b0b0;
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+
+			body {
+				background: url("./images/bg.png") no-repeat;
+			}
+			#container {
+				display: flex;
+				margin: 50px 0 0 459px;
+			}
+			.game {
+				border: 1px solid #ccc;
+			}
+			.row {
+				display: flex;
+			}
+			.column {
+				width: 25px;
+				height: 25px;
+				box-sizing: border-box;
+				border-radius: 40%;
+			}
+
+			#game-over {
+				display: none;
+				animation: game-over ease-in 1s;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				z-index: 99;
+			}
+
+			@keyframes game-over {
+				from {
+					left: 0;
+				}
+				to {
+					left: 50%;
+				}
+			}
+			#panel {
+				width: 200px;
+				height: 500px;
+				background-color: #009688;
+				margin-left: 20px;
+				position: relative;
+			}
+			#panel div {
+				position: absolute;
+				transform: translateX(-50%);
+				left: 50%;
+			}
+			#panel div:nth-child(1) {
+				top: 100px;
+			}
+			#panel div:nth-child(2) {
+				top: 150px;
+			}
+			#panel div:nth-child(3) {
+				top: 220px;
+			}
+			#panel div:nth-child(4) {
+				top: 280px;
+			}
+			#panel #score {
+				color: #ff5722;
+			}
+			#panel #max-score {
+				color: #ff5722;
+			}
+			#start:hover {
+				background-color: #5fb878;
+			}
+			#tip {
+				width: 150px;
+				font-size: 13px;
+				font-family: "宋体";
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="container">
+			<div id="app"></div>
+
+			<img src="./images/game_over.png" id="game-over" />
+			<div id="panel">
+				<div><span>分数:</span> <span id="score">0</span></div>
+				<div><span>最高分</span><span id="max-score"></span></div>
+				<div>
+					<button
+						type="button"
+						class="
+							layui-btn
+							layui-btn-radius
+							layui-btn-primary
+							layui-border-orange
+						"
+						id="start"
+					>
+						Start
+					</button>
+				</div>
+				<div id="tip">
+					<span class="layui-badge-dot"></span>
+					<span>您可以按空格开始游戏</span>
+				</div>
+			</div>
+		</div>
+
+		<p id="bottom">
+			<a id="record" href="https://beian.miit.gov.cn/" target="_blank"
+				>赣ICP备2021003002</a
+			>&nbsp;&nbsp;&nbsp;&nbsp;
+			<a id="author" href="javascript:;">© 2021—2021 leftover</a>
+		</p>
+		<script src="./js/event.js"></script>
+		<script src="./js/class/snake.js"></script>
+		<script src="./js/class/food.js"></script>
+		<script src="./js/utils/edgeAdj.js"></script>
+		<script src="./js/utils/foodPosition.js"></script>
+		<script src="./js/utils/reset.js"></script>
+		<script src="./js/clear.js"></script>
+		<script src="./js/index.js"></script>
+	</body>
+</html>
